@@ -33,25 +33,25 @@ const mockPetshop = {
 
 export default function PetshopDetailPage({ params }: { params: { id: string } }) {
   const [activeTab, setActiveTab] = useState('services');
-  const [cart, setCart] = useState<any[]>([]);
-  const [bookingModal, setBookingModal] = useState<{isOpen: boolean, service: any}>({isOpen: false, service: null});
-  const [checkoutModal, setCheckoutModal] = useState<{isOpen: boolean, bookingData: any}>({isOpen: false, bookingData: null});
-  const [trackingModal, setTrackingModal] = useState<{isOpen: boolean, orderData: any}>({isOpen: false, orderData: null});
+  const [cart, setCart] = useState<object[]>([]);
+  const [bookingModal, setBookingModal] = useState<{isOpen: boolean, service: object | null}>({isOpen: false, service: null});
+  const [checkoutModal, setCheckoutModal] = useState<{isOpen: boolean, bookingData: object | null}>({isOpen: false, bookingData: null});
+  const [trackingModal, setTrackingModal] = useState<{isOpen: boolean, orderData: object | null}>({isOpen: false, orderData: null});
 
-  const addToCart = (item: any, type: 'service' | 'product') => {
+  const addToCart = (item: object, type: 'service' | 'product') => {
     setCart([...cart, { ...item, type }]);
   };
 
-  const handleServiceBooking = (service: any) => {
+  const handleServiceBooking = (service: object) => {
     setBookingModal({isOpen: true, service});
   };
 
-  const handleBookingConfirm = (bookingData: any) => {
+  const handleBookingConfirm = (bookingData: object) => {
     setBookingModal({isOpen: false, service: null});
     setCheckoutModal({isOpen: true, bookingData});
   };
 
-  const handlePaymentSuccess = (orderData: any) => {
+  const handlePaymentSuccess = (orderData: object) => {
     setCheckoutModal({isOpen: false, bookingData: null});
     setTrackingModal({isOpen: true, orderData});
   };

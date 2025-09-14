@@ -5,8 +5,8 @@ import { useState } from 'react';
 interface CheckoutModalProps {
   isOpen: boolean;
   onClose: () => void;
-  bookingData: any;
-  onPaymentSuccess: (orderData: any) => void;
+  bookingData: object | null;
+  onPaymentSuccess: (orderData: object) => void;
 }
 
 const paymentMethods = [

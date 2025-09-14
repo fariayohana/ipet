@@ -75,18 +75,7 @@ export default function TrackingPage() {
     }
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'confirmed': return 'bg-blue-500';
-      case 'collecting': return 'bg-yellow-500';
-      case 'collected': return 'bg-orange-500';
-      case 'in_service': return 'bg-purple-500';
-      case 'completed': return 'bg-green-500';
-      case 'delivering': return 'bg-blue-500';
-      case 'delivered': return 'bg-green-600';
-      default: return 'bg-gray-500';
-    }
-  };
+
 
   const getStatusText = (status: string) => {
     switch (status) {
