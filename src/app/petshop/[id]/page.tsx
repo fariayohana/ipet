@@ -214,21 +214,21 @@ export default function PetshopDetailPage({ params }: { params: { id: string } }
       <ServiceBookingModal
         isOpen={bookingModal.isOpen}
         onClose={() => setBookingModal({isOpen: false, service: null})}
-        service={bookingModal.service}
+        service={bookingModal.service as any}
         onConfirm={handleBookingConfirm}
       />
 
       <CheckoutModal
         isOpen={checkoutModal.isOpen}
         onClose={() => setCheckoutModal({isOpen: false, bookingData: null})}
-        bookingData={checkoutModal.bookingData}
+        bookingData={checkoutModal.bookingData as any}
         onPaymentSuccess={handlePaymentSuccess}
       />
 
       <LiveTrackingModal
         isOpen={trackingModal.isOpen}
         onClose={() => setTrackingModal({isOpen: false, orderData: null})}
-        orderData={trackingModal.orderData}
+        orderData={trackingModal.orderData as any}
       />
     </div>
   );

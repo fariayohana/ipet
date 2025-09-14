@@ -117,31 +117,31 @@ export default function CheckoutModal({ isOpen, onClose, bookingData, onPaymentS
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Serviço:</span>
-                    <span className="font-medium">{bookingData.service?.name}</span>
+                    <span className="font-medium">{(bookingData as any)?.service?.name}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Pet:</span>
-                    <span className="font-medium">{bookingData.petInfo?.name}</span>
+                    <span className="font-medium">{(bookingData as any)?.petInfo?.name}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Data:</span>
                     <span className="font-medium">
-                      {new Date(bookingData.selectedDate).toLocaleDateString('pt-BR')}
+                      {new Date((bookingData as any)?.selectedDate).toLocaleDateString('pt-BR')}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Horário:</span>
-                    <span className="font-medium">{bookingData.selectedTime}</span>
+                    <span className="font-medium">{(bookingData as any)?.selectedTime}</span>
                   </div>
                 </div>
               </div>
 
               {/* Optional Services */}
-              {bookingData.selectedOptionals?.length > 0 && (
+              {(bookingData as any)?.selectedOptionals?.length > 0 && (
                 <div className="bg-gray-50 rounded-lg p-4">
                   <h3 className="font-semibold text-gray-900 mb-3">Serviços Opcionais</h3>
                   <div className="space-y-2">
-                    {bookingData.selectedOptionals.map((optional: any, index: number) => (
+                    {(bookingData as any)?.selectedOptionals.map((optional: any, index: number) => (
                       <div key={index} className="flex justify-between">
                         <span>{optional.name}</span>
                         <span className="font-medium">{formatPrice(optional.price)}</span>
@@ -204,7 +204,7 @@ export default function CheckoutModal({ isOpen, onClose, bookingData, onPaymentS
               <div className="border-t pt-4">
                 <div className="flex justify-between items-center text-xl font-bold">
                   <span>Total:</span>
-                  <span className="text-orange-600">{formatPrice(bookingData.total)}</span>
+                  <span className="text-orange-600">{formatPrice((bookingData as any)?.total)}</span>
                 </div>
               </div>
             </div>
@@ -304,10 +304,10 @@ export default function CheckoutModal({ isOpen, onClose, bookingData, onPaymentS
                 <h4 className="font-medium text-gray-900 mb-2">Resumo do Pedido</h4>
                 <div className="space-y-1 text-sm">
                   <div className="flex justify-between">
-                    <span>{bookingData.service?.name}</span>
-                    <span>{formatPrice(bookingData.service?.price || 0)}</span>
+                    <span>{(bookingData as any)?.service?.name}</span>
+                    <span>{formatPrice((bookingData as any)?.service?.price || 0)}</span>
                   </div>
-                  {bookingData.selectedOptionals?.map((optional: any, index: number) => (
+                  {(bookingData as any)?.selectedOptionals?.map((optional: any, index: number) => (
                     <div key={index} className="flex justify-between text-gray-600">
                       <span>{optional.name}</span>
                       <span>{formatPrice(optional.price)}</span>
@@ -315,7 +315,7 @@ export default function CheckoutModal({ isOpen, onClose, bookingData, onPaymentS
                   ))}
                   <div className="border-t pt-2 flex justify-between font-semibold">
                     <span>Total</span>
-                    <span className="text-orange-600">{formatPrice(bookingData.total)}</span>
+                    <span className="text-orange-600">{formatPrice((bookingData as any)?.total)}</span>
                   </div>
                 </div>
               </div>
